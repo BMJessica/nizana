@@ -1,0 +1,26 @@
+---
+import Home from "@components/Home.vue";
+import About from "@components/About.astro";
+import Questions from "@components/Questions.astro";
+import Services from "@components/Services.astro";
+import OurProcess from "@components/OurProcess.astro";
+import Contact from "@components/Contact.vue";
+import Text from "@components/Text.astro";
+---
+
+<script is:inline>
+  if (typeof window !== "undefined") {
+    window.onbeforeunload = () => {
+      window.scrollTo(0, 0);
+    };
+  }
+</script>
+
+<Home client:load />
+<Services />
+<OurProcess />
+<About />
+<Questions />
+<Text />
+<Contact client:load/>
+

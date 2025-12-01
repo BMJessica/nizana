@@ -1,0 +1,427 @@
+---
+import geraldine from "../assets/image/geraldine.jpg";
+import yareli from "../assets/image/yareli.jpg";
+import alison from "../assets/image/alison.jpg";
+import ivan from "../assets/image/ivan.jpg";
+import isaac from "../assets/image/isaac.jpg";
+import luis from "../assets/image/luis.jpg";
+import jessica from "../assets/image/jessica.jpg";
+
+
+
+const persons = [
+    {
+        imgSrc: geraldine.src,
+        name: "Geraldine Corona",
+        title: "Scrum Master",
+        text: "Dominio del idioma Francés, experiencia en dirección de equipos de desarrollo de software.",
+    },
+    {
+        imgSrc: yareli.src,
+        name: "Yareli Hernandez",
+        title: "Diseño y Marketing",
+        text: "Creativa, estratégica y enfocada en construir experiencias visuales que conecten con las personas y potencien la identidad de cada proyecto.",
+    },
+    {
+        imgSrc: alison.src,
+        name: "Alison Perez",
+        title: "Desarrollador",
+        text: "Enfoque en desarrollo web y multiplataforma. Soy una persona con facilidad para integrarme en equipos multidisciplinarios y asumir responsabilidades.",
+    },
+    {
+        imgSrc: ivan.src,
+        name: "Ivan Cruz",
+        title: "Desarrollador",
+        text: "Me especializo en el desarrollo Front End.  Me gusta programar, documentar proyectos y trabajar en la parte creativa del marketing.",
+    },
+    {
+        imgSrc: jessica.src,
+        name: "Jessica Boxtha",
+        title: "Tester",
+        text: "Me especializo en el desarrollo backend, y tengo experiencia en testeo y documentación.",
+    },
+    {
+        imgSrc: isaac.src,
+        name: "Isaac Morgado",
+        title: "Documentador / Marketing",
+        text: "Estudiante de Gestión y Desarrollo de Software. Me gusta programar, documentar proyectos y trabajar en la parte creativa del marketing.",
+    },
+    {
+        imgSrc: luis.src,
+        name: "Luis Muthe",
+        title: "Analista",
+        text: "desarrollador de software full stack. Experiencia en todo el ciclo de desarrollo de software.",
+    },
+];
+---
+
+<section class="container fade-up" id="about">
+    <div
+        data-w-id="2ee02312-8e92-18d3-0da6-d8e5d0191c27"
+        class="voices-section"
+    >
+        <div class="global-headline-div is-sticky">
+            <div class="max-width-35">
+                <h2
+                    class="global-headline-m line-height-1-2 parallax-title"
+                    style="will-change: transform, opacity; opacity: 1;"
+                >
+                    <span class="text-title">Nosotros</span>
+                    <br />
+                    <span class="text-marker">NIZANA STUDIO</span>
+                </h2>
+            </div>
+        </div>
+        <div class="voices-div">
+            {
+                persons.map((person, index) => (
+                    <div class={`voices-item _${index + 1}`}>
+                        <div class="align-vertically">
+                            <div class="align-horizontally g-05">
+                                <img
+                                    loading="lazy"
+                                    alt={`Foto de ${person.name}`}
+                                    class="avatar-img"
+                                    src={person.imgSrc}
+                                />
+                                <div class="align-vertically">
+                                    <div class="global-headline-xxs">
+                                        {person.name}
+                                    </div>
+                                    <p class="copytext">{person.title}</p>
+                                </div>
+                            </div>
+                            <div class="global-subline tm-1">
+                                <p class="copytext" set:html={person.text} />
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<script>
+    const cards = document.querySelectorAll(".voices-item");
+    let activeIndex = -1;
+    let lastScrollY = window.scrollY;
+    let isScrollingDown = true;
+    window.addEventListener(
+        "scroll",
+        () => {
+            const currentScrollY = window.scrollY;
+            isScrollingDown = currentScrollY > lastScrollY;
+            lastScrollY = currentScrollY;
+        },
+        { passive: true },
+    );
+    const updateCardClasses = () => {
+        cards.forEach((card, index) => {
+            if (index === activeIndex) {
+                card.classList.add("is-active");
+                card.classList.remove("is-inactive");
+            } else if (index < activeIndex) {
+                card.classList.add("is-inactive");
+                card.classList.remove("is-active");
+            } else {
+                card.classList.remove("is-active", "is-inactive");
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                const currentIndex = Array.from(cards).indexOf(entry.target);
+                if (isScrollingDown) {
+                    if (entry.isIntersecting) {
+                        activeIndex = currentIndex;
+                    }
+                } else {
+                    if (!entry.isIntersecting && currentIndex === activeIndex) {
+                        activeIndex = currentIndex - 1;
+                    }
+                }
+
+                updateCardClasses();
+            });
+        },
+        {
+            root: null,
+            rootMargin: "-50% 0px -50% 0px",
+            threshold: 0,
+        },
+    );
+
+    cards.forEach((card) => observer.observe(card));
+
+    // Parallax effect for title
+    const parallaxTitle = document.querySelector('.parallax-title') as HTMLElement;
+    let isParallaxActive = false;
+
+    // Intersection Observer to detect when About section comes into view
+    const aboutSection = document.getElementById('about');
+    const aboutObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    isParallaxActive = true;
+                } else {
+                    isParallaxActive = false;
+                }
+            });
+        },
+        {
+            root: null,
+            rootMargin: '-20% 0px -20% 0px',
+            threshold: 0
+        }
+    );
+
+    if (aboutSection) {
+        aboutObserver.observe(aboutSection);
+    }
+
+    // Parallax scroll effect
+    let ticking = false;
+    
+    function updateParallax() {
+        if (!isParallaxActive || !parallaxTitle) return;
+        
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        parallaxTitle.style.transform = `translateY(${rate}px)`;
+        ticking = false;
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+</script>
+
+<style>
+    .voices-section {
+        -webkit-text-size-adjust: 100%;
+        --blue: #061d65;
+        --white: #f0f0f0;
+        --background-light-grey: #f9f9f9;
+        --text: white;
+        --light-purple: #c1a3ff;
+        --light-grey: #f1f1f1;
+        --background-light-purple: #f2f0f7;
+        color: #333;
+        font-size: 14px;
+        line-height: 20px;
+        box-sizing: border-box;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+    }
+    .global-headline-div.is-sticky {
+        position: sticky;
+        top: 15vh;
+    }
+    .global-headline-div {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        display: flex;
+        position: relative;
+    }
+    .max-width-35 {
+        width: 100%;
+    }
+    .global-headline-m {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--blue);
+        letter-spacing: -0.5px;
+        font-size: 60px;
+        font-weight: 700;
+        gap: 0.2em;
+    }
+    .parallax-title {
+        transition: transform 0.1s ease-out;
+        will-change: transform;
+    }
+    .text-title {
+        align-self: center;
+    }
+    .text-marker {
+        color: #0465b1;
+        font-weight: 600;
+        font-size: 0.6em;
+        letter-spacing: 0.5px;
+        align-self: flex-end;
+    }
+    .voices-div {
+        grid-column-gap: 12.5rem;
+        grid-row-gap: 12.5rem;
+        flex-flow: column;
+        margin-top: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .voices-item {
+        background-color: var(--blue);
+        border: 1px solid #2e2e2e;
+        border-radius: 32px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 40rem;
+        padding: 2.5rem;
+        display: flex;
+        position: sticky;
+        top: 42.5vh;
+        transition: transform 0.4s ease-out;
+        will-change: transform;
+    }
+    .voices-item._1 {
+        transform: translateY(-0.8rem) scale(0.94) rotate(6deg);
+    }
+    .voices-item._2 {
+        transform: translateY(-0.4rem) scale(0.97) rotate(-6deg);
+    }
+    .voices-item._3 {
+        transform: translateY(-0.8rem) scale(0.94) rotate(6deg);
+    }
+    .voices-item._4 {
+        transform: translateY(-0.4rem) scale(0.97) rotate(-6deg);
+    }
+    .voices-item._5 {
+        transform: translateY(-0.8rem) scale(0.94) rotate(6deg);
+    }
+    .voices-item._6 {
+        transform: translateY(-0.4rem) scale(0.97) rotate(-6deg);
+    }
+    .voices-item.is-active {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+    .align-vertically {
+        flex-flow: column;
+        justify-content: center;
+        align-items: flex-start;
+        display: flex;
+        position: relative;
+    }
+    .align-horizontally {
+        justify-content: flex-start;
+        align-items: center;
+        display: flex;
+    }
+    .align-horizontally.g-05 {
+        grid-column-gap: 0.5rem;
+        grid-row-gap: 0.5rem;
+    }
+    .avatar-img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        overflow: hidden;
+        object-fit: cover;
+        border: 2px solid var(--white);
+    }
+    .global-headline-xxs {
+        font-size: 22px;
+        font-weight: 600;
+        color: white;
+    }
+    img {
+        max-width: 100%;
+        display: inline-block;
+    }
+    .global-subline {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    .global-subline.tm-1 {
+        margin-top: 1rem;
+    }
+    .copytext {
+        color: var(--text);
+        letter-spacing: 0;
+        margin-bottom: 0;
+        font-family: inherit;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.4em;
+    }
+    .is-white {
+        color: var(--white);
+        text-decoration: none;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .text-marker {
+            align-self: center;
+        }
+    }
+    
+    @media screen and (max-width: 1024px) {
+        .global-headline-m {
+            text-align: center;
+            font-size: 54px;
+        }
+        .voices-item {
+            top: 35vh;
+        }
+        .voices-div {
+            row-gap: 10rem;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .voices-section {
+            padding: 0 1rem;
+        }
+
+        .global-headline-m {
+            font-size: 40px;
+        }
+
+        .global-headline-div.is-sticky {
+            top: 15vh;
+        }
+
+        .voices-div {
+            row-gap: 8rem;
+            margin-top: 15vh;
+        }
+
+        .voices-item {
+            padding: 1.5rem;
+            max-width: 84%;
+        }
+
+        .avatar-img {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+
+        .global-headline-xxs {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .copytext {
+            font-size: 13px;
+        }
+    }
+</style>

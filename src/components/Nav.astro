@@ -1,0 +1,281 @@
+---
+import HeaderButton from "@components/HeaderButton.astro";
+import Logo from "../assets/logo2.svg";
+
+interface LinkItem {
+    label: string;
+    href: string;
+}
+interface Props {
+    links: LinkItem[];
+}
+const { links } = Astro.props;
+---
+
+<header class="header fade-up">
+    <a class="logo">
+        <Logo class="svg" />
+    </a>
+
+    <nav class="nav" role="navigation">
+        <input id="icon-menu" class="icon-menu" type="checkbox" />
+        <label
+            for="icon-menu"
+            class="icon-svg"
+            role="button"
+            aria-controls="menu-open"
+            aria-expanded="false"
+        >
+            <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+                aria-hidden="true"
+            >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M4 6h16"></path>
+                <path d="M4 12h16"></path>
+                <path d="M4 18h16"></path>
+            </svg>
+            <span class="sr-only">Menú</span>
+        </label>
+
+        <ul id="menu-open" class="menu">
+            {
+                links.map((link) => (
+                    <li class="menu-item">
+                        <HeaderButton id={link.href}>{link.label}</HeaderButton>
+                    </li>
+                ))
+            }
+            <li class="menu-item contact-mobile">
+                <a href="#contacto" class="contact-btn">CONTACTO</a>
+            </li>
+        </ul>
+        <div class="menu-cover" aria-hidden="true"></div>
+    </nav>
+    <a href="#contacto" class="contact-btn contact-desktop">CONTACTO</a>
+</header>
+
+<style>
+    .header {
+        position: fixed;
+        top: 0;
+        inset-inline: 0;
+        z-index: 1000;
+        height: 80px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        backdrop-filter: saturate(150%) blur(6px);
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+
+    .contact-btn {
+        background: linear-gradient(135deg, #0465B1 0%, #0A7AD8 100%);
+        color: #fff;
+        padding: 0.6rem 1.8rem;
+        margin-right: 5rem;
+        letter-spacing: 0.05rem;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(4, 101, 177, 0.25);
+    }
+    .contact-btn:hover {
+        background: linear-gradient(135deg, #035492 0%, #0866BF 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(4, 101, 177, 0.35);
+    }
+
+    .contact-desktop {
+        display: inline-block;
+    }
+    .contact-mobile {
+        display: none;
+    }
+
+    .logo {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    .logo .svg {
+        display: block;
+        height: 60px;
+        width: auto;
+    }
+
+    .nav {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        min-width: 0;
+    }
+
+    .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .menu-item {
+        list-style: none;
+    }
+
+    .icon-menu {
+        position: absolute;
+        inline-size: 1px;
+        block-size: 1px;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .icon-svg {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: 10px;
+        line-height: 0;
+        padding: 8px;
+        border-radius: 10px;
+    }
+    .icon-svg:focus-visible {
+        outline: 2px solid #4a90e2;
+        outline-offset: 2px;
+    }
+    .menu-cover {
+        display: none;
+    }
+
+    @media (max-width: 1200px) {
+        .contact-btn {
+            margin-right: 0rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            height: 60px;
+            padding: 0 0rem;
+        }
+        .contact-desktop {
+            display: none;
+        }
+        .contact-mobile {
+            display: list-item;
+        }
+        .logo .svg {
+            display: block;
+            height: 50px;
+            width: auto;
+            padding-left: 10px;
+        }
+        .icon-svg {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .menu {
+            position: fixed;
+            inset: 60px 0 auto 0;
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            background: #fff;
+            z-index: 1001;
+            transform-origin: top;
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease,
+                visibility 0.25s ease;
+            opacity: 0;
+            transform: translateY(-8px);
+            visibility: hidden;
+            padding: 16px 0 20px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+        .menu-cover {
+            position: fixed;
+            inset: 0;
+            top: 60px;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease;
+            display: block;
+        }
+        .icon-menu:checked ~ .menu {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+        .icon-menu:checked ~ .menu-cover {
+            opacity: 1;
+            visibility: visible;
+        }
+        html:has(#icon-menu:checked) {
+            overflow: hidden;
+        }
+        .menu-contact {
+            padding-top: 4px;
+        }
+    }
+
+    @media (min-width: 769px) {
+        .icon-svg {
+            display: none;
+        }
+
+        .menu {
+            display: flex;
+            position: static;
+            flex-direction: row;
+            gap: 10px;
+            padding: 0 12px 0 0;
+            background: transparent;
+            opacity: 1;
+            transform: none;
+            box-shadow: none;
+            border: 0;
+            align-items: center;
+        }
+        .menu-cover {
+            display: none;
+        }
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        overflow: hidden;
+        white-space: nowrap;
+    }
+</style>

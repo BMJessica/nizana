@@ -1,0 +1,124 @@
+---
+import video1 from "../assets/monday/video1.mp4";
+import video2 from "../assets/monday/video2.mp4";
+import video3 from "../assets/monday/video3.mp4";
+
+const videos = [
+  { id: 1, title: "Gestión de Proyectos con Monday", src: video1 },
+  { id: 2, title: "Organización de Equipos", src: video2 },
+  { id: 3, title: "Automatización de Procesos", src: video3 },
+];
+---
+
+<section id="monday-section" class="monday">
+  <div class="content">
+    <h2>Potencia tu Trabajo con <span>Monday.com</span></h2>
+
+    <p class="intro">
+      Monday es una poderosa plataforma de <strong>gestión de proyectos</strong> que permite organizar 
+      flujos de trabajo, visualizar tareas y mejorar la productividad del equipo.
+      <br /><br />
+      <strong>Nizana te ofrece Work Management</strong>, un servicio basado en Monday.com que te permite estructurar, 
+      planear y coordinar tus actividades con una experiencia eficiente, ordenada y completamente 
+      personalizada para tu equipo.
+    </p>
+
+    <div class="videos">
+      {videos.map((v, index) => (
+        <div class="video-card" key={v.id}>
+          <video
+            src={v.src}
+            controls
+            muted
+            loop
+            playsinline
+            preload={index === 0 ? "auto" : "metadata"}
+            class="hover-video"
+          ></video>
+          <h3>{v.title}</h3>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const videos = document.querySelectorAll(".hover-video");
+
+    videos.forEach(video => {
+      video.addEventListener("mouseenter", () => {
+        video.play().catch(()=>{});
+      });
+
+      video.addEventListener("mouseleave", () => {
+        video.pause();
+      });
+    });
+  });
+</script>
+
+
+
+
+<style>
+  .monday {
+    width: 100%;
+    padding: 120px 20px;
+    background: #0b0b1a;
+    color: white;
+    text-align: center;
+  }
+
+  .content {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  h2 span {
+    color: #2eaaff;
+  }
+
+  .intro {
+    max-width: 850px;
+    margin: 0 auto 60px;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  .videos {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .video-card video {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+
+  .video-card h3 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .hover-video {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    object-fit: cover;
+    background: #000;
+  }
+
+</style>

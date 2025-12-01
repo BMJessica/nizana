@@ -1,0 +1,277 @@
+---
+import Linea from "../assets/linea.svg";
+import Logo from "../assets/nizana.svg";
+
+---
+
+<section class="container fade-up" id="services">
+  <Linea class="decoracion-svg" />
+    <div class="title">
+        <div class="encabezado">
+            <h1 class="encabezado__titulo">Servicios</h1>
+            <p class="encabezado__descripcion">Desarrollamos soluciones de software a la medida, diseñadas para adaptarse a las necesidades específicas de tu negocio. No importa el tamaño o sector, creamos herramientas digitales que impulsan tu crecimiento y te diferencian en el mercado.</p>
+        </div>
+    </div>
+
+    <div class="cards">
+        <article class="card card--web">
+            <div class="card__head">
+                <div class="card__icon" aria-hidden="true">
+                    <!-- Globe Click Icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M3 12h18M12 3c3.5 3.8 3.5 13.2 0 18M12 3c-3.5 3.8-3.5 13.2 0 18" />
+                        <path d="M15.5 15.5l3.5 3.5m0-3.5v3.5h-3.5" />
+                    </svg>
+                </div>
+                <h3 class="card__title">Páginas Web</h3>
+                <div class="card__loader" aria-hidden="true"></div>
+            </div>
+            <div class="card__body">
+                <p>Webs rápidas, accesibles y optimizadas para SEO con las mejores prácticas.</p>
+            </div>
+        </article>
+
+        <article class="card card--moviles">
+            <div class="card__head">
+                <div class="card__icon" aria-hidden="true">
+                    <!-- Mobile Icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="7" y="2.5" width="10" height="19" rx="2" />
+                        <circle cx="12" cy="17.5" r="1.2" />
+                    </svg>
+                </div>
+                <h3 class="card__title">Aplicaciones Móviles</h3>
+                <div class="card__loader" aria-hidden="true"></div>
+            </div>
+            <div class="card__body">
+                <p>Apps iOS y Android con experiencias nativas y desempeño sólido.</p>
+            </div>
+        </article>
+
+        <article class="card card--sistemas">
+            <div class="card__head">
+                <div class="card__icon" aria-hidden="true">
+                    <!-- Web System / Monitor Gear Icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="3" y="4" width="18" height="12" rx="2" />
+                        <path d="M8 20h8M12 16v4" />
+                        <circle cx="17.5" cy="9.5" r="2.2" />
+                        <path d="M17.5 6.8v1.1M17.5 10.9V12M14.8 9.5h1.1M19.1 9.5h1.1" />
+                    </svg>
+                </div>
+                <h3 class="card__title">Sistemas Web</h3>
+                <div class="card__loader" aria-hidden="true"></div>
+            </div>
+            <div class="card__body">
+                <p>Backoffice, paneles y APIs robustas con seguridad y escalabilidad.</p>
+            </div>
+        </article>
+
+        <article class="card card--consultoria">
+            <div class="card__head">
+                <div class="card__icon" aria-hidden="true">
+                    <!-- Chat / Consulting Icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M4 5h12a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-2l-4 4v-4H4a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3z" />
+                        <path d="M7 10h6M7 13h4" />
+                    </svg>
+                </div>
+                <h3 class="card__title">Consultoría</h3>
+                <div class="card__loader" aria-hidden="true"></div>
+            </div>
+            <div class="card__body">
+                <p>Estrategia, auditoría y acompañamiento para acelerar tus objetivos digitales.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<style>
+    .container {
+        width: 100%;
+        padding: 80px 16px 200px 16px;
+        background: radial-gradient(1200px 600px at 50% -10%, #2c2b57 0%, #0b0b1a 55%, #070712 100%);
+        color: #e7e7ff;
+        position: relative;
+    }
+    
+   .decoracion-svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;  /* se ajusta sin deformarse */
+        opacity: 0.3;
+        z-index: 1;
+        pointer-events: none;
+        }
+
+    .title { max-width: 1100px; margin: 0 auto 24px auto; position: relative; z-index: 2; }
+    .encabezado {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        align-items: start;
+        gap: 16px;
+    }
+    .encabezado__titulo {
+        font-size: 56px;
+        line-height: 1.05;
+        margin: 0 0 0 48px; 
+        color: #d6d7ff;
+        letter-spacing: .4px;
+    }
+    .encabezado__descripcion {
+        margin: 44px 0 0 8px; 
+        color: #e6e6ff;
+        opacity: .95;
+    }
+    @media (max-width: 980px) {
+        .encabezado { grid-template-columns: 1fr; }
+        .encabezado__titulo { font-size: 40px; text-align: left; }
+        .encabezado__descripcion { text-align: left; margin-top: 24px; margin-left: 0; }
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+        max-width: 1100px;
+        margin: 24px auto 0 auto;
+        position: relative;
+        z-index: 2;
+        overflow: visible;
+        align-items: start;     /* evita que el escalado afecte la alineación de las otras tarjetas */
+        isolation: isolate;     /* crea un contexto de apilamiento para z-index */
+    }
+
+    @media (max-width: 1024px) {
+        .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+        .cards { grid-template-columns: 1fr; }
+    }
+
+    .card {
+        --tarjeta-fondo: rgba(255,255,255,.08);
+        --tarjeta-texto: #e8e9ff;
+        --duracion-expandir: .35s;
+        height: 280px;
+        position: relative;
+        border-radius: 16px;
+        background: var(--tarjeta-fondo);
+        backdrop-filter: blur(6px);
+        color: var(--tarjeta-texto);
+        overflow: visible;                 /* importante para que la tarjeta pueda desbordar sin afectar layout */
+        transform: scale(1);
+        transform-origin: center center;
+        transition: transform var(--duracion-expandir) ease,
+                    background-color var(--duracion-expandir) ease,
+                    color var(--duracion-expandir) ease,
+                    box-shadow var(--duracion-expandir) ease;
+        will-change: transform;
+        min-width: 0;                      /* evita problemas de ancho en grid/flex */
+    }
+
+    .card:hover {
+        background: #ffffff;
+        color: #0b1b3b;
+        transform: scale(1.08);
+        z-index: 50;                       /* por encima de las demás */
+        box-shadow: 0 12px 40px rgba(0,0,0,.35);
+    }
+
+    /* forzar que las demás tarjetas NO cambien de escala cuando el grid está en hover */
+    .cards:hover .card:not(:hover) {
+        transform: scale(1);
+        /* opcional: dar pequeño efecto de "desenfoque" visual a las demás, quítalo si no lo quieres */
+        opacity: 0.92;
+        transition: transform var(--duracion-expandir) ease, opacity var(--duracion-expandir) ease;
+    }
+
+    .card__head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 18px 18px 18px;
+        text-align: center;
+    }
+    .card__icon {
+        width: 70px;
+        height: 70px;
+        color: var(--tarjeta-acento);
+        display: grid;
+        place-items: center;
+        margin-bottom: 14px;
+        transition: color var(--duracion-expandir) ease, transform var(--duracion-expandir) ease;
+    }
+    .card:hover .card__icon { color: var(--tarjeta-acento-hover); transform: scale(1.05); }
+
+    .card__title {
+        font-size: 22px;
+        margin: 0;
+        font-weight: 800;
+        color: var(--tarjeta-acento);
+    }
+    .card:hover .card__title { color: var(--tarjeta-acento); }
+
+ 
+    .card__body {
+        padding: 0 18px 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--duracion-expandir) ease, padding-bottom var(--duracion-expandir) ease, opacity var(--duracion-expandir) ease;
+        opacity: 0.0;
+        text-align: center;
+    }
+    .card:hover .card__body {
+        max-height: 160px; 
+        padding-bottom: 22px;
+        opacity: 1;
+    }
+    .card__body p { margin: 0; }
+
+    /* Barra de carga bajo el título */
+    .card__loader {
+        width: 60%;
+        height: 4px;
+        margin-top: 10px;
+        background: linear-gradient(90deg, var(--tarjeta-acento) 0%, var(--tarjeta-acento-hover) 100%);
+        border-radius: 999px;
+        transform: scaleX(0);
+        transform-origin: center center; 
+        transition: transform var(--duracion-expandir) ease;
+        opacity: .0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .card:hover .card__loader {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+    .container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px; /* puedes ajustar este valor */
+    background: linear-gradient(
+        to bottom,
+        rgba(11, 11, 26, 0) 0%,
+        rgba(11, 11, 26, 0.6) 40%,
+        rgba(11, 11, 26, 1) 100%
+    );
+    pointer-events: none;
+    z-index: 3; /* encima del fondo pero debajo del contenido */
+    }
+
+
+    /* Colores por tipo de servicio */
+    .card--web { --tarjeta-acento: #061D65; --tarjeta-acento-hover: #061D65; }
+    .card--moviles { --tarjeta-acento: #1F09B2; --tarjeta-acento-hover: #1F09B2; }
+    .card--sistemas { --tarjeta-acento: #5A02BF; --tarjeta-acento-hover: #5A02BF; }
+    .card--consultoria { --tarjeta-acento: #A60078; --tarjeta-acento-hover: #A60078; }
+</style>

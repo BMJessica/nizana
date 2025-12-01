@@ -1,0 +1,520 @@
+--- 
+---
+
+<section class="container fade-up" id="faq">
+    <div class="bg-grow" aria-hidden="true"></div>
+    <div class="content">
+        <div class="left-section">
+            <div class="text-content">
+                <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
+                <h3 class="main-title parallax-title">Todo lo que necesitas saber</h3>
+                <p class="description">¿Tienes dudas? Aquí están las preguntas más comunes de nuestros clientes.</p>
+                <button class="contact-btn">CONTACTO</button>
+            </div>
+        </div>
+        
+        <div class="right-section">
+            <div class="faq-list">
+                <div class="faq-item" data-faq="1">
+                    <div class="faq-question">
+                        <span>¿Qué información necesito proporcionar para iniciar mi proyecto?</span>
+                        <div class="chevron">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Principalmente necesitamos conocer tus objetivos, los procesos de tu negocio que deseas optimizar, y cualquier idea o referencia que tengas en mente. Con esta base, podemos crear una propuesta personalizada que se ajuste a tus necesidades.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-faq="2">
+                    <div class="faq-question">
+                        <span>¿Puedo solicitar cambios en el diseño o funcionalidad durante el desarrollo?</span>
+                        <div class="chevron">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutamente. Entendemos que los proyectos evolucionan y es normal que surjan nuevas ideas durante el desarrollo. Trabajamos con un proceso iterativo que permite ajustes y mejoras continuas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-faq="3">
+                    <div class="faq-question">
+                        <span>¿Ofrecen soporte y mantenimiento después de entregar el proyecto?</span>
+                        <div class="chevron">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, ofrecemos planes de soporte y mantenimiento adaptados a las necesidades de cada proyecto. Esto incluye actualizaciones, corrección de errores, optimizaciones y nuevas funcionalidades.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-faq="4">
+                    <div class="faq-question">
+                        <span>¿Pueden integrarse con sistemas o herramientas que ya uso en mi negocio?</span>
+                        <div class="chevron">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Por supuesto. Tenemos experiencia integrando con múltiples sistemas como CRMs, ERPs, herramientas de marketing, sistemas de pago y más. Evaluamos las mejores opciones de integración para tu caso específico.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-faq="5">
+                    <div class="faq-question">
+                        <span>¿Qué pasa si no estoy satisfecho con el diseño inicial?</span>
+                        <div class="chevron">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El diseño es un proceso colaborativo. Si no estás satisfecho, trabajamos contigo para refinarlo hasta que cumpla con tus expectativas. Incluimos revisiones ilimitadas en la fase de diseño para asegurar tu satisfacción.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .container {
+        width: 100%;
+        padding: 80px 16px;
+         /*  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 50%, #f0f2ff 100%); */
+        color: #2c2c54;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Fondo que crece con el scroll */
+    .bg-grow {
+        position: absolute;
+        inset: 10% 4%;
+        background: radial-gradient(1200px 600px at 50% -10%, #e9ebff 0%, #eef0ff 55%, #f4f6ff 100%);
+        border-radius: 24px;
+        transform: scale(0.9);
+        transition: transform 0.2s ease-out;
+        z-index: 1;
+        pointer-events: none;
+        box-shadow: 0 20px 60px rgba(130, 142, 255, 0.25);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+        position: relative;
+        z-index: 2;
+    }
+
+    .left-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .text-content {
+        max-width: 500px;
+    }
+
+    .section-title {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: #0465b1;
+        margin: 0 0 16px 0;
+        text-transform: uppercase;
+    }
+
+    .main-title {
+        font-size: 48px;
+        font-weight: 800;
+        color: #2c2c54;
+        margin: 0 0 24px 0;
+        line-height: 1.1;
+    }
+    .parallax-title {
+        transition: transform 0.1s ease-out;
+        will-change: transform;
+    }
+
+    .description {
+        font-size: 18px;
+        color: #5a5a7a;
+        margin: 0 0 32px 0;
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    .contact-btn {
+        background: linear-gradient(135deg, #0465B1 0%, #0A7AD8 100%);
+        color: #ffffff;
+        border: none;
+        padding: 16px 42px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: inherit;
+        box-shadow: 0 4px 15px rgba(4, 101, 177, 0.25);
+    }
+
+    .contact-btn:hover {
+        background: linear-gradient(135deg, #035492 0%, #0866BF 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(4, 101, 177, 0.35);
+    }
+
+    .right-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .faq-item {
+        border: 1px solid rgba(90, 2, 191, 0.2);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        opacity: 1;
+        transform: translateY(0);
+        box-shadow: 0 4px 20px rgba(90, 2, 191, 0.1);
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .faq-item:hover {
+        border-color: rgba(90, 2, 191, 0.4);
+        box-shadow: 0 6px 25px rgba(90, 2, 191, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .faq-item.active {
+        border-color: rgba(90, 2, 191, 0.6);
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 8px 30px rgba(90, 2, 191, 0.2);
+    }
+
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 28px 32px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        user-select: none;
+        border-radius: 0;
+    }
+
+    .faq-item.active .faq-question {
+        background: rgba(90, 2, 191, 0.05);
+    }
+
+    .faq-question span {
+        font-size: 16px;
+        font-weight: 500;
+        color: #2c2c54;
+        flex: 1;
+        margin-right: 16px;
+    }
+
+    .chevron {
+        color: #5A02BF;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .faq-item.active .chevron {
+        transform: rotate(180deg);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
+        background: transparent;
+        opacity: 0;
+        border-top: 1px solid rgba(90, 2, 191, 0.2);
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 300px;
+        padding: 0 32px 28px 32px;
+        opacity: 1;
+        background: transparent;
+    }
+
+    .faq-answer p {
+        margin: 0;
+        color: #5a5a7a;
+        line-height: 1.6;
+        font-size: 15px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .content {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .main-title {
+            font-size: 36px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 60px 16px;
+        }
+
+        .main-title {
+            font-size: 28px;
+        }
+
+        .description {
+            font-size: 16px;
+        }
+
+        .faq-question {
+            padding: 20px;
+        }
+
+        .faq-question span {
+            font-size: 15px;
+        }
+    }
+</style>
+
+<script>
+    function initFAQAnimations() {
+        const container = document.querySelector('.container') as HTMLElement;
+        const bg = document.querySelector('.bg-grow') as HTMLElement;
+        if (container) {
+            container.style.opacity = '1';
+        }
+        // Observador para escalar el fondo con scroll
+        if (bg) {
+            const onScroll = () => {
+                const section = document.getElementById('faq');
+                if (!section) return;
+                const rect = section.getBoundingClientRect();
+                const windowH = window.innerHeight || document.documentElement.clientHeight;
+                // progreso de entrada: 0 al estar por debajo, 1 al estar centrado
+                const start = windowH * 0.9;
+                const end = windowH * 0.2;
+                const clamped = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
+                const scale = 0.9 + clamped * 0.15; // 0.9 -> 1.05
+                bg.style.transform = `scale(${scale})`;
+            };
+            onScroll();
+            window.addEventListener('scroll', onScroll, { passive: true });
+        }
+        
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach((item, index) => {
+            setTimeout(() => {
+                const htmlItem = item as HTMLElement;
+                htmlItem.style.opacity = '1';
+                htmlItem.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+        
+        console.log('Animaciones FAQ inicializadas');
+    }
+
+    // Funcionalidad del acordeón
+    function initFAQAccordion() {
+        console.log('Inicializando FAQ Accordion...');
+        
+        // Esperar un poco más para asegurar que el DOM esté completamente cargado
+        setTimeout(() => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            console.log('FAQ items encontrados:', faqItems.length);
+            
+            if (faqItems.length === 0) {
+                console.log('No se encontraron elementos FAQ, reintentando...');
+                setTimeout(initFAQAccordion, 200);
+                return;
+            }
+            
+            faqItems.forEach((item, index) => {
+                const question = item.querySelector('.faq-question');
+                console.log(`Item ${index}:`, question);
+                
+                if (question) {
+                    // Remover listeners anteriores si existen
+                    question.removeEventListener('click', handleQuestionClick);
+                    question.addEventListener('click', handleQuestionClick);
+                    
+                    function handleQuestionClick(e: Event) {
+                        console.log('Click en pregunta:', index);
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const isActive = item.classList.contains('active');
+                        console.log('¿Está activo?', isActive);
+                        
+                        // Cerrar todos los items primero
+                        faqItems.forEach(otherItem => {
+                            otherItem.classList.remove('active');
+                        });
+                        
+                        // Toggle del item clickeado
+                        if (!isActive) {
+                            item.classList.add('active');
+                            console.log('Abriendo pregunta:', index);
+                        }
+                    }
+                }
+            });
+        }, 50);
+    }
+
+    // Inicialización simple
+    function initializeFAQ() {
+        console.log('Inicializando FAQ...');
+        initFAQAnimations();
+        initFAQAccordion();
+    }
+
+    // Parallax
+    function initParallaxEffect() {
+        const parallaxTitle = document.querySelector('.parallax-title') as HTMLElement;
+        let isParallaxActive = false;
+
+    
+        const faqSection = document.getElementById('faq');
+        const faqObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        isParallaxActive = true;
+                    } else {
+                        isParallaxActive = false;
+                    }
+                });
+            },
+            {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            }
+        );
+
+        if (faqSection) {
+            faqObserver.observe(faqSection);
+        }
+
+    
+        let ticking = false;
+        
+        function updateParallax() {
+            if (!isParallaxActive || !parallaxTitle) return;
+            
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.8;
+            
+            parallaxTitle.style.transform = `translateY(${rate}px)`;
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick, { passive: true });
+    }
+
+    // Inicializar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeFAQ();
+            initParallaxEffect();
+        });
+    } else {
+        initializeFAQ();
+        initParallaxEffect();
+    }
+
+    // Event delegation simple y robusto
+    document.addEventListener('click', function(e: Event) {
+        const target = e.target as HTMLElement;
+        if (target && target.closest && target.closest('.faq-question')) {
+            const question = target.closest('.faq-question') as HTMLElement;
+            const faqItem = question?.closest('.faq-item') as HTMLElement;
+            
+            if (faqItem) {
+                console.log('Click detectado en FAQ');
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const isActive = faqItem.classList.contains('active');
+                
+                // Cerrar todos los items primero
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // Toggle del item clickeado
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    console.log('Abriendo pregunta FAQ');
+                }
+            }
+        }
+    });
+</script> 
